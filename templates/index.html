@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorio Forum</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/Factorio Logo.png') }}" alt="Factorio Logo">
+            <div class="logo">Factorio Forum</div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Forums</a></li>
+                <li><a href="#">Community</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+    <main>
+        
+        <div class="Top_Posts">
+            <article class="Posts">
+                <li><p href="post">Post1</p></li>
+            </article>
+            <article class="Posts">
+                <li><p href="post">Post2</p></li>
+            </article>
+            <article class="Posts">
+                <li><p href="post">Post3</p></li>
+            </article>
+            <article class="Posts">
+                <li><p href="post">Post4</p></li>
+            </article>
+        </div>
+        
+        <div class="Main_Content">
+            <section class="welcome">
+                <h1>Welcome to the Factorio Forum</h1>
+                <p>Join the discussion about all things Factorio, share tips, and collaborate with other players!</p>
+            </section>
+        
+            <section class="categories">
+                <article class="category">
+                    <h2>General Discussion</h2>
+                    <p>Talk about anything related to Factorio.</p>
+                </article>
+                <article class="category">
+                    <h2>Mods &amp; Updates</h2>
+                    <p>Share and discover mods, or discuss development.</p>
+                </article>
+                <article class="category">
+                    <h2>Multiplayer</h2>
+                    <p>Find other players or discuss multiplayer tips.</p>
+                </article>
+                <article class="category">
+                    <h2>Technical Support</h2>
+                    <p>Get help with any technical issues or questions.</p>
+                </article>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Factorio Forum. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
