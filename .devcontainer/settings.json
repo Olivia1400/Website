@@ -1,0 +1,10 @@
+
+{
+    "textIndentHighlighter.colors": [
+      "#ff0000",  // 1-level indent color
+      "#00ff00",  // 2-level indent color
+      "#0000ff",  // 3-level indent color
+      "#ffff00",  // 4-level indent color
+      "#ff00ff"   // 5-level indent color
+    ]
+}
