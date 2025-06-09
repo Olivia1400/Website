@@ -1,7 +1,7 @@
 import sqlite3
 
-
 #! selects command type to be used in following function
+
 def select_command():
     
     try:
@@ -12,7 +12,7 @@ def select_command():
         start(cmd_Type='create')
         return
 
-#! This is the start function for determining creating or uploading to db
+#! This is the start function for determining creating or uploading for the database                                                                                                                                                                                                                                                
 
 def start(cmd_Type):
     if cmd_Type == 'create':
@@ -25,6 +25,7 @@ def start(cmd_Type):
         print("Invalid command type. Please use 'create' or 'upload'.")
 
 #! Runs THe command for the database
+
 def run_database(command):
     
     cursor = sqlite3.connect('database.db')
@@ -46,8 +47,8 @@ def create_command():
     
     return command
 
-
 #! Runs the database upload command.
+
 def upload_command():
     
     command = (''' INSERT INTO Database 
@@ -55,7 +56,6 @@ def upload_command():
             VALUES (?, ?, ?, ?)''')
     
     return command
-
 
 #! Runs the database creation and uploading of any data into the database.
 
