@@ -1,4 +1,4 @@
-import os, sqlite3
+import sqlite3
 
 def run_database(command):
     
@@ -8,6 +8,7 @@ def run_database(command):
     cursor.close()
 
 
+#! Creates the database and the table if it does not exist.
 
 def create_command():
     command = ('''CREATE TABLE IF NOT EXISTS Database (
@@ -22,6 +23,7 @@ def create_command():
     return command
 
 
+#! Runs the database upload command.
 def upload_command():
     command = (''' INSERT INTO Database 
             (username, password, age, gender) 
@@ -31,7 +33,8 @@ def upload_command():
     return command
 
 
-#! 
+
+#! Runs the database creation and uploading of any data into the database.
 
 if __name__ == '__main__':
     run_database(create_command())
