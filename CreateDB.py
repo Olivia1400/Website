@@ -3,14 +3,14 @@ import sqlite3
 
 #! selects command type to be used in following function
 def select_command():
+    
     try:
         sqlite3.connect('database.db')
+        return
     except sqlite3.OperationalError:
         print("Database not found. Please create the database first.")
         start(cmd_Type='create')
-    else:
-        print("Database connection established successfully.")
-        start(cmd_Type='upload')
+        return
 
 #! This is the start function for determining creating or uploading to db
 
