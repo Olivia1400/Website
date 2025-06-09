@@ -1,0 +1,223 @@
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f2f2f2;
+    color: #212529;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-shadow: #979797 1px 1px;
+}
+
+header {
+    background-color: #d35400;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    border-bottom-style: outset;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header .logo-container img {
+    height: 40px;
+    width: 40px;
+}
+
+header .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: #979797 1px 1px;
+}
+
+header .nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+header .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    text-shadow: #979797 1px 1px;
+    padding: 0.5rem 1rem;
+    background-color: #e67e22;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+header .nav-links a:hover {
+    background-color: #cf6e1b;
+}
+
+main .Top_Posts{
+    float: left;
+    left: 90%;
+    top: 50%;
+    padding: 1rem;
+    max-width: 20%;
+    width: 200px;
+    position: relative(main);
+    margin: 10%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-color: #f2f2f2;
+    border-style: solid;
+}
+
+main .Top_Posts .Posts li {
+    position: inherit;
+    background: #fef5e7;
+    border: 1px solid #e59866;
+    border-radius: 5px;
+    border-style: outset;
+    padding: 1rem;
+    margin: 5%;
+    width: 90%;
+    height: max-content;
+    min-height: 50px;
+    max-width: 180px;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    text-shadow: #979797 1px 1px;
+}
+
+main .Top_Posts .Posts :hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+main .Top_Posts .Posts li p {
+    font-size: 2rem;
+    color: #d35400;
+    margin-bottom: 1rem;
+}
+
+main .Main_Content {
+    position: relative;
+    padding: 1rem;
+    max-width: 50%;
+    width: 800px;
+    margin: 10%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-color: #f2f2f2;
+    border-style: solid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+main .Main_Content .welcome {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+main .Main_Content .welcome h1 {
+    font-size: 3rem;
+    text-shadow: #979797 1px 1px;
+    margin-bottom: 1rem;
+    color: #d35400;
+}
+
+main .Main_Content .welcome p {
+    font-size: 1rem;
+    text-shadow: #979797 1px 1px;
+    color: black;
+}
+
+main .Main_Content .categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+main .Main_Content .category {
+    background: #fef5e7;
+    border: 1px solid #e59866;
+    border-radius: 5px;
+    border-style: outset;
+    padding: 1.5rem;
+    width: 100%;
+    height: max-content;
+    min-height: 125px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    text-shadow: #979797 1px 1px;
+}
+
+main .Main_Content .category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+main .Main_Content .category h2 {
+    font-size: 2rem;
+    color: #d35400;
+    margin-bottom: 1rem;
+}
+
+main .Main_Content .category p {
+    font-size: 1rem;
+    color: black;
+}
+
+footer {
+    text-align: center;
+    background-color: #d35400;
+    color: white;
+    padding: 1rem;
+    margin-top: auto;
+    font-size: 1rem;
+    border-top-style:outset;
+    border-color: #f2f2f2;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    header .nav-links {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    main .categories {
+        grid-template-columns: 1fr;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+}
