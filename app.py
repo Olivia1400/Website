@@ -36,7 +36,12 @@ def LogIn():
         username = request.form['username']
         password = hashlib.sha256(request.form['password'].encode()).hexdigest()
         tabtype = 'login'
-    
+        if initdb(username, password):
+            session['username'] = username
+            flash('Logged in successfully!')
+            return redirect(url_for('dashboard'))
+        else:
+            flash('Invalid username or password!')
 
 #! Dashboard
 
