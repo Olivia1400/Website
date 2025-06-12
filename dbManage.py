@@ -7,16 +7,16 @@ def selectcmd(username, password):
     
     try:
         sqlite3.connect('database.db')
-        start(cmdType='upload')
+        startdb(cmdType='upload')
         return 
     except sqlite3.OperationalError:
         print("Database not found. Please create the database first.")
-        start(cmdType='create')
+        startdb(cmdType='create')
         return
 
 #! This is the start function for determining creating or uploading for the database                                                                                                                                                                                                                                                
 
-def startdb(cmd_Type):
+def startdb(cmdType):
     if cmdType == 'create':
         rundb(createcmd())
         print("Database created successfully.")
