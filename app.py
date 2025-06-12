@@ -21,9 +21,7 @@ def SignUp():
         connection = sqlite3.connect(dblocale)
         cursor = connection.cursor()
         try:
-            cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
-            connection.commit()
-            flash()
+            initdb(username, password)
             
 
 @app.route('/LogIn', methods=['GET','POST'])

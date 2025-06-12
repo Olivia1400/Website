@@ -1,25 +1,27 @@
 import sqlite3
 from app import username, password
+
 #! selects command type to be used in following function
 
-def selectcmd():
+def selectcmd(username, password):
     
     try:
         sqlite3.connect('database.db')
-        return
+        start(cmdType='upload')
+        return 
     except sqlite3.OperationalError:
         print("Database not found. Please create the database first.")
-        start(cmd_Type='create')
+        start(cmdType='create')
         return
 
 #! This is the start function for determining creating or uploading for the database                                                                                                                                                                                                                                                
 
 def startdb(cmd_Type):
-    if cmd_Type == 'create':
-        run_database(create_command())
+    if cmdType == 'create':
+        rundb(createcmd())
         print("Database created successfully.")
-    elif cmd_Type == 'upload':
-        run_database(upload_command())
+    elif cmdType == 'upload':
+        rundb(uploadcmd())
         print("Data uploaded successfully.")
     else:
         print("Invalid command type. Please use 'create' or 'upload'.")
@@ -47,15 +49,16 @@ def createcmd():
 
 #! Runs the database upload command.
 
-def uploadcmd():
+def uploadcmd(username,password):
     
     command = (''' INSERT INTO Database 
-            (username, password, age, gender) 
-            VALUES (?, ?, ?, ?)''')
+            (username, password) 
+            VALUES (?, ?)''', 
+            (username, password))
     
     return command
 
 #! Runs the database creation and uploading of any data into the database.
 
-def initdb():
-    selectcmd()
+def initdb(username, password):
+    selectcmd(username, password)
