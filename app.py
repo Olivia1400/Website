@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request,redirect,url_for,session
 import os
 import sqlite3
+from dbmanage import initdb
 
 app = Flask(__name__)
 app.secret_key = '12'

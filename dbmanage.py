@@ -1,8 +1,8 @@
 import sqlite3
-
+from app import username, password
 #! selects command type to be used in following function
 
-def select_command():
+def selectcmd():
     
     try:
         sqlite3.connect('database.db')
@@ -14,7 +14,7 @@ def select_command():
 
 #! This is the start function for determining creating or uploading for the database                                                                                                                                                                                                                                                
 
-def start(cmd_Type):
+def startdb(cmd_Type):
     if cmd_Type == 'create':
         run_database(create_command())
         print("Database created successfully.")
@@ -26,7 +26,7 @@ def start(cmd_Type):
 
 #! Runs THe command for the database
 
-def run_database(command):
+def rundb(command):
     
     cursor = sqlite3.connect('database.db')
     cursor.execute(command)
@@ -35,13 +35,11 @@ def run_database(command):
 
 #! Creates the database and the table if it does not exist.
 
-def create_command():
+def createcmd():
     command = ('''CREATE TABLE IF NOT EXISTS Database (
         uuid INTEGER PRIMARY KEY AUTOINCREMENT,
         username TEXT NOT NULL UNIQUE,
-        password TEXT NOT NULL,
-        age INTEGER,
-        gender TEXT
+        password TEXT NOT NULL
     )''')
     
     
@@ -49,7 +47,7 @@ def create_command():
 
 #! Runs the database upload command.
 
-def upload_command():
+def uploadcmd():
     
     command = (''' INSERT INTO Database 
             (username, password, age, gender) 
@@ -59,5 +57,5 @@ def upload_command():
 
 #! Runs the database creation and uploading of any data into the database.
 
-if __name__ == '__main__':
-    select_command()
+def initdb():
+    selectcmd()
