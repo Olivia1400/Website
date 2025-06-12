@@ -1,22 +1,31 @@
 import sqlite3
-from app import username, password
+from app import username, password, tabtype
 
 #! selects command type to be used in following function
 
 def selectcmd(username, password):
-    
-    try:
-        sqlite3.connect('database.db')
-        startdb(cmdType='upload')
-        return 
-    except sqlite3.OperationalError:
-        print("Database not found. Please create the database first.")
-        startdb(cmdType='create')
-        return
+    if tabtype == 'login':
+        try:
+            sqlite3.connect('database.db')
+            runcmd(cmdType='Login')
+            return
+        except sqlite3.OperationalError:
+            print("Database not found. Please create the database first.")
+            runcmd(cmdType='create')
+            initdb(username, password)
+    elif tabtype == 'signup':
+        try:
+            sqlite3.connect('database.db')
+            runcmd(cmdType='upload')
+            return 
+        except sqlite3.OperationalError:
+            print("Database not found. Please create the database first.")
+            runcmd(cmdType='create')
+            initdb(username, password)
 
 #! This is the start function for determining creating or uploading for the database                                                                                                                                                                                                                                                
 
-def startdb(cmdType):
+def runcmd(cmdType):
     if cmdType == 'create':
         rundb(createcmd())
         print("Database created successfully.")
@@ -49,7 +58,7 @@ def createcmd():
 
 #! Runs the database upload command.
 
-def uploadcmd(username,password):
+def uploadcmd(username, password):
     
     command = (''' INSERT INTO Database 
             (username, password) 
@@ -58,7 +67,21 @@ def uploadcmd(username,password):
     
     return command
 
+
+#! Runs Database Read Command
+
+def readcmd():
+    
+    command = (''' SELECT *
+            FROM Database
+            ''')
+    
+    return command
+
+
 #! Runs the database creation and uploading of any data into the database.
 
 def initdb(username, password):
+    username = username.strip().lower()
+    password = password.strip()
     selectcmd(username, password)
